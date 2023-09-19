@@ -9,13 +9,12 @@ import { Link } from 'react-scroll';
 
 const Home = () => {
   const [number, setNumber] = useState(0);
-  const arrayOfWords = ['Tap again', 'Helllo', 'You found this', 'I added this...', 'because it seemed cool', `so here's something`, 'did you know that...', `You can't breathe and talk.`, 'the earth is 71% water.', `It snows in the Sahara Desert
-`,]
+  const arrayOfWords = ['Toca de nuevo', 'Hola!', 'Me encontraste', 'Agregué esto...', 'por que se ve genial', `asi que, aqui te va un dato`, 'sabías que...', 'pasamos mas tiempo leyendo código...', '...que escribiéndolo?',]
   const textContent = useRef();
   const handleDownload = () => {
     saveAs(
-      "google drive url",
-      "Resume.pdf"
+      "https://drive.google.com/file/d/1wsPKl_5yavAFaBifY_VGxbbRIUn4TdIW/view?usp=drive_link",
+      "CV Federico Zelarayan - Fullstack.pdf"
     )
   }
 
@@ -41,7 +40,7 @@ const Home = () => {
       <div className="home-text">
         <h1>
           <span className='gradientText'>
-            Hi, I'm Lorem!
+            Hola, soy Federico!
           </span>
           <span>
             <span onClick={handleChange}>
@@ -55,8 +54,8 @@ const Home = () => {
         <TypeWriterEffect
           cursorColor="#1da1f2"
           multiText={[
-            'Web Developer',
-            "Don't Forget to Scroll"
+            'Desarrollador Web Fullstack',
+            "No olvides scrollear!"
           ]}
           multiTextLoop={true}
           multiTextDelay={1500}
@@ -64,10 +63,10 @@ const Home = () => {
         />
         <div className="btns">
           <Link className='btn1' activeClass="active" to="mail" spy={true} smooth={true} offset={0} duration={500}>
-            Hire Me
+            Contrátame
           </Link>
 
-          <div onClick={handleDownload} className='btn2'>View Resume</div>
+          <div onClick={handleDownload} className='btn2'>Curriculum Vitae</div>
         </div>
       </div>
 

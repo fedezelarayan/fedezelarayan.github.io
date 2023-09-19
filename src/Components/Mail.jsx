@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
 import '../styles/Mail.css'
-
 import emailjs from '@emailjs/browser';
+const serviceID = process.env.REACT_APP_EMAILJS_SERVICEID;
+const templateID = process.env.REACT_APP_EMAILJS_TEMPLATEID;
+const publicKey = process.env.PASS_OUTLOOK_APP;
 
 const Mail = () => {
   const radio = useRef();
@@ -20,7 +22,7 @@ const Mail = () => {
   const formResMsg = useRef()
 
   const validation = (email, name, message, subject) => {
-    const acceptedEmail = ['gmail.com', 'yahoo.com', 'yahoo.co.in', 'outlook.com', 'protonmail.com', 'aol.com', 'icloud.com', 'me.com', 'mac.com', 'gmx.com', 'hey.com']
+    const acceptedEmail = ['gmail.com', 'yahoo.com', 'yahoo.co.in', 'outlook.com', 'protonmail.com', 'aol.com', 'icloud.com', 'me.com', 'mac.com', 'gmx.com', 'hotmail.com']
     if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
       acceptedEmail.includes(email.split('@')[1]) ?
         valid.email = true : valid.email = false
@@ -51,16 +53,16 @@ const Mail = () => {
     if (!condition) {
       error.current.style.display = 'block'
     } else {
-      // Using email.js to send emails https://www.emailjs.com/docs/sdk/installation/
-      // use .env to store ids and keys from email.js
-      // emailjs.send(serviceID, templateID, toSend, publicKey)
-      //   .then((response) => {
-      //     formResMsg.current.innerText = "Message sent..."
-      //     reset();
-      //   }, (err) => {
-      //     formResMsg.current.innerText = "Failed... " + err.text
-      // });
-      // error.current.style.display = 'none'
+/*        Using email.js to send emails https://www.emailjs.com/docs/sdk/installation/
+       use .env to store ids and keys from email.js*/
+       emailjs.send(serviceID, templateID, toSend, publicKey)
+         .then((response) => {
+           formResMsg.current.innerText = "Message sent..."
+           reset();
+         }, (err) => {
+           formResMsg.current.innerText = "Failed... " + err.text
+       });
+       error.current.style.display = 'none' 
     }
   }
 
@@ -83,11 +85,11 @@ const Mail = () => {
 
   return (
     <div className='mail' id='mail'>
-      <h2>Get In Touch</h2>
+      <h2>Ponte en contacto</h2>
       <div>
         <div className='entry'>
           <div>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Nombre</label>
             <input type="text" name="name" autoComplete='off' value={toSend.name} onChange={handleChange} />
           </div>
           <div>
@@ -106,7 +108,7 @@ const Mail = () => {
                 ref={radio}
                 disabled={isDisabled}
               />
-              <label htmlFor="work">Work</label>
+              <label htmlFor="work">Trabajo</label>
             </div>
             <div>
               <input
@@ -119,7 +121,7 @@ const Mail = () => {
                 ref={radio}
                 disabled={isDisabled}
               />
-              <label htmlFor="collaboration">Collaboration</label>
+              <label htmlFor="collaboration">Colaboración</label>
             </div>
             <div>
               <input
@@ -132,19 +134,19 @@ const Mail = () => {
                 ref={radio}
                 disabled={isDisabled}
               />
-              <label htmlFor="chat">Coffee Chat</label>
+              <label htmlFor="chat">Conversemos!</label>
             </div>
             <div>
-              <input type="text" name="subject" id='other' placeholder='Other' autoComplete='off' onChange={handleChange} />
+              <input type="text" name="subject" id='other' placeholder='Otro' autoComplete='off' onChange={handleChange} />
             </div>
           </div>
           <div>
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">Mensaje</label>
             <textarea name="message" cols="30" rows="10" value={toSend.message} onChange={handleChange}></textarea>
           </div>
           <p style={{ color: 'red !important', display: 'none' }} ref={error}>Something is missing</p>
           <p style={{ color: 'red !important' }} ref={formResMsg}></p>
-          <div className='btn' onClick={handleClick}>Send Message</div>
+          <div className='btn' onClick={handleClick}>Enviar!</div>
         </div>
       </div>
     </div>
