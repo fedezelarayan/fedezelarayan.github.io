@@ -3,15 +3,14 @@ import '../styles/Mail.css'
 import emailjs from '@emailjs/browser';
 const serviceID = process.env.REACT_APP_EMAILJS_SERVICEID;
 const templateID = process.env.REACT_APP_EMAILJS_TEMPLATEID;
-const publicKey = process.env.PASS_OUTLOOK_APP;
 
 const Mail = () => {
   const radio = useRef();
   const [toSend, setToSend] = useState({
-    subject: '',
     name: '',
-    email: '',
-    message: ''
+    message: '',
+    subject: '',
+    email: ''
   });
   const [isDisabled, setIsDisabled] = useState(false);
   const valid = {
@@ -30,7 +29,7 @@ const Mail = () => {
       valid.email = false;
     }
 
-    if (name !== '' && subject !== '' && message.length > 100) {
+    if (name !== '' && subject !== '' && message.length > 20) {
       valid.rest = true;
       console.log('here')
     } else {
@@ -40,10 +39,10 @@ const Mail = () => {
 
   const reset = () => {
     setToSend({
-      subject: '',
       name: '',
-      email: '',
-      message: ''
+      message: '',
+      subject: '',
+      email: ''
     })
   }
 
@@ -53,9 +52,7 @@ const Mail = () => {
     if (!condition) {
       error.current.style.display = 'block'
     } else {
-/*        Using email.js to send emails https://www.emailjs.com/docs/sdk/installation/
-       use .env to store ids and keys from email.js*/
-       emailjs.send(serviceID, templateID, toSend, publicKey)
+       emailjs.send(serviceID, templateID, toSend, "nS0UEigurJL2P8B2K")
          .then((response) => {
            formResMsg.current.innerText = "Message sent..."
            reset();
