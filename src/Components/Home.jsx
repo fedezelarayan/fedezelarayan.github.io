@@ -13,7 +13,7 @@ const Home = () => {
   const textContent = useRef();
   const handleDownload = () => {
     saveAs(
-      "https://drive.google.com/file/d/1wsPKl_5yavAFaBifY_VGxbbRIUn4TdIW/view?usp=drive_link",
+      "https://drive.google.com/file/d/1TLn0n9hFZnXPSwgtciyZ4u95PQ47z7Fz/view?usp=drive_link",
       "CV Federico Zelarayan - Fullstack.pdf"
     )
   }

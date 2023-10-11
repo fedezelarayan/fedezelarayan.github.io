@@ -5,19 +5,19 @@ import '../styles/Projects.css';
 const Projects = () => {
   const projectsInfo = {
     one: {
-      name: 'Project 1',
-      desc: 'congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed',
-      liveLink: 'website url',
-      githubLink: 'https://github.com/',
-      techs: ['HTML', 'CSS', 'TypeScript'],
+      name: 'BookVerse',
+      desc: 'BookVerse es un e-commerce full-stack en el que participé, dedicado a la venta de libros, noticias y últimos lanzamientos literarios en diferentes formatos. Con mi equipo trabajamos bajo la modalidad de metodologías ágiles y utilizando el flujo de trabajo de Git.',
+      liveLink: 'https://bookverse-client.vercel.app/',
+      githubLink: 'https://github.com/GianPolastri/BookVerse-API',
+      techs: ['JavaScript', 'NodeJs', 'SQLServer', 'React', 'Redux', 'HTML', 'CSS' ], 
       isOpenSource: true
     },
     two: {
-      name: 'Project 2',
-      desc: 'congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed',
+      name: 'La Gruta',
+      desc: 'La Gruta es un proyecto full-stack en el que me encuentro trabajando, el cual está destinado un centro de desarrollo infantil llamado “La Gruta”. Con mi equipo trabajamos bajo la modalidad de metodologías ágiles y utilizando el flujo de trabajo de Git.',
       liveLink: 'website url',
       githubLink: 'https://github.com/',
-      techs: ['React', 'Node', 'MongoDB', 'Socket.io', 'Redux'],
+      techs: ['JavaScript', 'NodeJs', 'SQLServer', 'ReactJS', 'Redux', 'HTML', 'CSS' ],
       isOpenSource: true
     }
   }
